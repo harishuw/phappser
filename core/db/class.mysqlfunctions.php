@@ -1,0 +1,7 @@
+<?php/*****************************************class.mysqlfunctions.php**************Created by HUW*********************Created on 02-04-2014*************Modified on 02-05-2014*****************************************************************************/class mysqlfunctions {	function __construct()	{	}
+	function result($query)	{		$result= mysqli_fetch_array($query, MYSQLI_ASSOC);		$this->free_results($query);		return $result;	}
+	function results($query)	{		$result=array();		while($row = mysqli_fetch_array($query, MYSQLI_ASSOC))		{			$result[]=$row;		}		$this->free_results($query);		return $result;	}
+	function num_result($query)	{		$result= mysqli_fetch_array($query, MYSQLI_NUM);		$this->free_results($query);		return $result;	}
+	function num_results($query)	{		$result=array();		while($row = mysqli_fetch_array($query, MYSQLI_NUM))		{			$result[]=$row;		}		$this->free_results($query);		return $result;	}
+	function obj_result($query)	{		$obj = mysqli_fetch_object($query); 		$this->free_results($query);		return $obj;	}	function obj_results($query)	{		$result=array();		while ($obj = mysqli_fetch_object($query)) 		{			$result[]=$obj;		}		$this->free_results($query);		return $result;	}
+	function free_results($query)	{		mysqli_free_result($query);	}	}?>

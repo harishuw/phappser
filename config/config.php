@@ -1,0 +1,1 @@
+<?php$pconfig['jversion']='1.0.5';$pconfig['debug']=FALSE;$pconfig['session']=TRUE;$pconfig['index_functions']=array('index','index1');
